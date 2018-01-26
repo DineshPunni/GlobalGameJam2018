@@ -35,12 +35,24 @@ public class InputController : MonoBehaviour {
     public static Action<GameObject> OnThumbnailClicked;
     public static Action OnVideoScreenClicked;
 
+    public static Action<GameObject> OnCubeClicked;
+
+
 	void OnEnable()
 	{
 		GazeGestureManager.OnTapped += (tappedObject) =>
 		{
 			if (tappedObject != null)
 			{
+                Debug.Log("something got clikced");
+
+                if (tappedObject.name == "Cube(Clone)" && OnCubeClicked != null)
+                {
+                    Debug.Log("Cube got clicked");
+                    OnCubeClicked(tappedObject);
+                    return;
+                }
+
 				if (tappedObject.name == "Logo" && OnLogoClicked != null)
 				{
 					OnLogoClicked();
