@@ -44,11 +44,9 @@ public class InputController : MonoBehaviour {
 		{
 			if (tappedObject != null)
 			{
-                Debug.Log("something got clikced");
 
                 if (tappedObject.name == "Cube(Clone)" && OnCubeClicked != null)
                 {
-                    Debug.Log("Cube got clicked");
                     OnCubeClicked(tappedObject);
                     return;
                 }

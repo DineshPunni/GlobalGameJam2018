@@ -25,23 +25,13 @@ public class NetworkController : NetworkBehaviour
         //InputController.OnLogoClicked += () => RpcToggleMainMenu();
         //InputController.OnManualClicked += () => RpcSwitchState(MenuState.Manual);
 
-        InputController.OnCubeClicked += (tappedObject) => RpcChangeColor(tappedObject);
 
     }
 
+    [ClientRpc]
     private void RpcChangeColor(GameObject tappedObj)
     {
-        if (isGreen)
-        {
-            tappedObj.GetComponent<Renderer>().material.color = Color.red;
-            isGreen = false;
-        }
-        else
-        {
-            tappedObj.GetComponent<Renderer>().material.color = Color.green;
-            isGreen = true;
-        }
-
+       
     }
 
     //[ClientRpc]
